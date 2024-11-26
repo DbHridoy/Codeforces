@@ -15,23 +15,19 @@ using namespace std;
 void solve() {
     int n;
     cin >> n;
-    int a[n];
-    int c = 0, ans = 0;
-    map<int, int> m;
+    string s;
+    cin >> s;
+    int c = 0, begin, end;
     for (int i = 0; i < n; i++) {
-        cin >> a[i];
-        m[a[i]]++;
-    }
-    for (int i = 0; i < n; i++) {
-        if (m[a[i]] >= 3) {
-            ans = a[i];
+        if (s[i] == 'B' && c == 0) {
+            begin = i;
             c++;
         }
+        if (s[i] == 'B' && c > 0) {
+            end = i;
+        }
     }
-    if (c > 0)
-        cout << ans << endl;
-    else
-        cout << -1 << endl;
+    cout << end - begin + 1 << endl;
 }
 
 int32_t main() {

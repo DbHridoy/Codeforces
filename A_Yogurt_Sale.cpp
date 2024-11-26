@@ -12,35 +12,26 @@
 
 using namespace std;
 
-void solve() {
-    int n;
-    cin >> n;
-    int a[n];
-    int c = 0, ans = 0;
-    map<int, int> m;
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
-        m[a[i]]++;
-    }
-    for (int i = 0; i < n; i++) {
-        if (m[a[i]] >= 3) {
-            ans = a[i];
-            c++;
-        }
-    }
-    if (c > 0)
-        cout << ans << endl;
-    else
-        cout << -1 << endl;
+void solve()
+{
+    int n,a,b;
+    cin>>n>>a>>b;
+    int regular,offer;
+    regular=a*n;
+    if(n%2==0)offer=(n/2)*b;
+    else offer=(n/2)*b+a;
+    cout<<min(regular,offer)<<endl;
 }
 
-int32_t main() {
+int32_t main()
+{
     faster;
     // freopen("../../input.txt", "r", stdin);
     // freopen("../../output.txt", "w", stdout);
     int tc;
-    cin >> tc;
-    while (tc--) {
+    cin>>tc;
+    while (tc--)
+    {
         solve();
     }
     return (0);

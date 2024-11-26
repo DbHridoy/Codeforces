@@ -13,25 +13,28 @@
 using namespace std;
 
 void solve() {
-    int n;
-    cin >> n;
-    int a[n];
-    int c = 0, ans = 0;
-    map<int, int> m;
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
-        m[a[i]]++;
-    }
-    for (int i = 0; i < n; i++) {
-        if (m[a[i]] >= 3) {
-            ans = a[i];
-            c++;
+    string s;
+    char ans;
+    int a, b, c;
+    a = b = c = 0;
+    for (int i = 0; i < 3; i++) {
+        cin >> s;
+        for (int i = 0; i < 3; i++) {
+            if (s[i] == 'A')
+                a++;
+            else if (s[i] == 'B')
+                b++;
+            else
+                c++;
         }
     }
-    if (c > 0)
-        cout << ans << endl;
+    if (a == 2)
+        ans = 'A';
+    else if (b == 2)
+        ans = 'B';
     else
-        cout << -1 << endl;
+        ans = 'C';
+    cout << ans << endl;
 }
 
 int32_t main() {

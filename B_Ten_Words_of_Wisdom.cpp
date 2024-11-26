@@ -15,23 +15,21 @@ using namespace std;
 void solve() {
     int n;
     cin >> n;
-    int a[n];
-    int c = 0, ans = 0;
-    map<int, int> m;
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
-        m[a[i]]++;
+    int a[n], b[n];
+    cin >> a[0] >> b[0];
+    int mx = 0, ans = 0;
+    if (a[0] <= 10) {
+        mx = b[0];
+        ans = 1;
     }
-    for (int i = 0; i < n; i++) {
-        if (m[a[i]] >= 3) {
-            ans = a[i];
-            c++;
+    for (int i = 1; i < n; i++) {
+        cin >> a[i] >> b[i];
+        if (b[i] > mx && a[i] <= 10) {
+            mx = b[i];
+            ans = i + 1;
         }
     }
-    if (c > 0)
-        cout << ans << endl;
-    else
-        cout << -1 << endl;
+    cout << ans << endl;
 }
 
 int32_t main() {

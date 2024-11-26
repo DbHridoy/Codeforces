@@ -16,22 +16,16 @@ void solve() {
     int n;
     cin >> n;
     int a[n];
-    int c = 0, ans = 0;
-    map<int, int> m;
+    int sum = 0;
     for (int i = 0; i < n; i++) {
         cin >> a[i];
-        m[a[i]]++;
+        sum += a[i];
     }
-    for (int i = 0; i < n; i++) {
-        if (m[a[i]] >= 3) {
-            ans = a[i];
-            c++;
-        }
-    }
-    if (c > 0)
-        cout << ans << endl;
+    int b = sqrt(sum);
+    if (b * b == sum)
+        cout << "YES" << endl;
     else
-        cout << -1 << endl;
+        cout << "NO" << endl;
 }
 
 int32_t main() {
